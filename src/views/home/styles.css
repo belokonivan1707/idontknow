@@ -1,0 +1,7 @@
+.home-page-wrapper {
+    background: deeppink;
+}
+
+.home-page-wrapper:has(.home-page-wrapper, .home-page-list-item) .home-page-list {
+    background-color: darkslateblue;
+}
