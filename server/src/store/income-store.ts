@@ -7,6 +7,10 @@ export interface INewCategory {
     title: string;
 }
 
+export interface INewExpense {
+    value: number;
+}
+
 
 export class IncomeStore {
     categories: ICategories[]
@@ -21,6 +25,10 @@ export class IncomeStore {
 
     setNewCategory(body: INewCategory) {
         this.categories.push({id: this.categories.length, title: body.title})
+    }
+
+    addNewExpense() {
+        // this.categories.find()
     }
 }
 

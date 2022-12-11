@@ -1,3 +1,14 @@
+.form-income {
+    margin-bottom: 16px;
+}
+
 .income-categories-list li:hover {
     background-color: aquamarine;
+}
+
+.income-input-box {
+    display: flex;
+    flex-direction: column;
+    max-width: 330px;
+    margin-bottom: 8px;
 }

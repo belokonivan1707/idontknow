@@ -17,4 +17,11 @@ export class IncomeController {
 
     return incomeStore.getAllCategories();
   }
+
+  @Post('new-expense')
+  postNewExpense(@Body() body: INewCategory) {
+    incomeStore.setNewCategory(body);
+
+    return incomeStore.getAllCategories();
+  }
 }

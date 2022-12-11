@@ -13,6 +13,7 @@ interface Categories {
 
 export function Income() {
     const [categories, setCategories] = React.useState<Categories[] | null>(null)
+    
     const { register, handleSubmit, reset } = useForm<FormData>();
 
     useEffect(() => {
@@ -38,57 +39,34 @@ export function Income() {
     }
 
     function onCategoryClick(categoryID: number) {
-        console.log(categoryID)
+        console.log('categoryID', categoryID);
     }
 
     return (
         <div className='wrapper-income'>
             <form onSubmit={handleSubmit(onSubmitNewCategory)} className="form-income">
-                <input type="text" placeholder='new catogory' {...register("category")} />
-                <input type="submit" />
+                <div className='income-input-box'>
+                    <label>create new category</label>
+                    <input type="text" placeholder='new catogory' {...register("category")} />
+                </div>
+                <button type="submit">Add New Category</button>
             </form>
 
-            <ul className='income-categories-list'>
-                {categories && categories.map(({ id, title }: Categories) => {
-                    return (
-                        <li 
-                            key={id} 
-                            onClick={() => onCategoryClick(id)}
+            <div>
+                <h3>Your Categories</h3>
+                <ul className='income-categories-list'>
+                    {categories && categories.map(({ id, title }: Categories) => {
+                        return (
+                            <li
+                                key={id}
+                                onClick={() => onCategoryClick(id)}
                             >
-                            {title}
-                        </li>
-                    )
-                })}
-            </ul>
+                                {title}
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
         </div>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// create new category
-
-// add expense to existing category 
-
-// default categories
-
-
-// fetch('http://localhost:8000/income/new-category', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json;charset=utf-8'
-//     },
-//     body: {}
-// })

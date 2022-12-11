@@ -15,16 +15,19 @@ import { APP_ROUTES, IAppRoutes } from "../common/routes/app-routes";
 const App = () => {
   return (
     <BrowserRouter>
-      <AppBar />
-      <Routes>
-        {APP_ROUTES.map((route: IAppRoutes, index: number) => (
-          <Route
-            key={index}
-            path={route.path}
-            element={route.element}
-          />
-        ))}
-      </Routes>
+      <div className="wrapper">
+        <AppBar />
+        <Routes>
+          {APP_ROUTES.map((route: IAppRoutes, index: number) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
+        </Routes>
+      </div>
+
     </BrowserRouter>
   );
 }

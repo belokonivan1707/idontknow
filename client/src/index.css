@@ -12,7 +12,15 @@ code {
     monospace;
 }
 
+.wrapper {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 * {
   list-style: none;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
 }

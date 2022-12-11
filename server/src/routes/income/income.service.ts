@@ -9,7 +9,10 @@ export class IncomeService {
     }
 
     postNewCategory(request, response) {
-        console.log('body 1', request)
+        return response;
+    }
+
+    postNewExpense(request, response) {
         return response;
     }
 }
