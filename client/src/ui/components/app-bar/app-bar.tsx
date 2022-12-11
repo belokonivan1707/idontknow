@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { APP_ROUTES, IAppRoutes } from "../../../common/constants/app-routes.constans"
+import { APP_ROUTES, IAppRoutes } from "../../../common/routes/app-routes"
 
 export const AppBar = () => {
     function renderLinks({ path, title }: IAppRoutes, index: number) {

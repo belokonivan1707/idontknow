@@ -10,7 +10,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { AppBar } from "../ui/components/app-bar/app-bar";
-import { APP_ROUTES, IAppRoutes } from "../common/constants/app-routes.constans";
+import { APP_ROUTES, IAppRoutes } from "../common/routes/app-routes";
 
 const App = () => {
   return (
