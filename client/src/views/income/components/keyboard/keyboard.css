@@ -1,0 +1,42 @@
+.keyboard-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.keyboard-pannel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.keyboard-pannel-amount {
+    font-size: var(--main-title-size);
+    color: var(--secondary-font);
+}
+
+.keyboard-pannel-text {
+    font-size: var(--main-subtitle-size);
+    color: var(--secondary-font);
+}
+
+.keyboard-list-container {
+    display: inline-grid;
+    grid-template-rows: 75px;
+    grid-template-columns: 75px 75px 75px;
+    grid-gap: 7.5px;
+    justify-content: center;
+}
+
+.keyboard-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+}

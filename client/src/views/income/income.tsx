@@ -1,49 +1,44 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+
+import { incomeService, ICategories, FormData } from '../../common/services/income.services';
+import { Categories } from './components/categories/categories';
+import { Keyboard } from './components/keyboard/keyboard';
 import './income.css'
 
-interface FormData {
-    category: string,
-};
-
-interface Categories {
-    id: number;
-    title: string;
-}
-
 export function Income() {
-    const [categories, setCategories] = React.useState<Categories[] | null>(null)
-    
     const { register, handleSubmit, reset } = useForm<FormData>();
+    const [amount, setAmount] = React.useState<string>('')
+    const [categories, setCategories] = React.useState<ICategories[] | null>(null)
 
-    useEffect(() => {
-        fetch('http://localhost:8000/income/categories')
-            .then(response => response.json())
+    React.useEffect(() => {
+        incomeService.getAllCategories()
             .then(result => setCategories(result))
     }, [])
 
 
     function onSubmitNewCategory({ category }: FormData) {
-        fetch('http://localhost:8000/income/new-category', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ title: category })
-        })
-            .then(response => response.json())
+        incomeService.submitNewCategory({ category })
             .then(result => {
                 setCategories(result);
-                reset()
+                reset();
             })
     }
 
     function onCategoryClick(categoryID: number) {
-        console.log('categoryID', categoryID);
+        if(!isNaN(Number(amount))) {
+            console.log('amount', Math.round(Number(amount) * 100) / 100);
+        }
+
+        console.log('isNaN(amount)', );
     }
 
     return (
         <div className='wrapper-income'>
+            <Keyboard amount={amount} setAmount={setAmount} />
+
+            <Categories categories={categories} onCategoryClick={onCategoryClick} />
+
             <form onSubmit={handleSubmit(onSubmitNewCategory)} className="form-income">
                 <div className='income-input-box'>
                     <label>create new category</label>
@@ -51,22 +46,6 @@ export function Income() {
                 </div>
                 <button type="submit">Add New Category</button>
             </form>
-
-            <div>
-                <h3>Your Categories</h3>
-                <ul className='income-categories-list'>
-                    {categories && categories.map(({ id, title }: Categories) => {
-                        return (
-                            <li
-                                key={id}
-                                onClick={() => onCategoryClick(id)}
-                            >
-                                {title}
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
         </div>
     )
 }

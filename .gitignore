@@ -3,6 +3,8 @@
 /coverage
 
 /build
+/dist
+server/dist
 
 .DS_Store
 .env.local

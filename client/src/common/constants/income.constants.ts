@@ -1,0 +1,1 @@
+export const ENTER_EXPENSE_MESSAGE = 'Enter expense';
