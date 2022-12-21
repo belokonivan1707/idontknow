@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, UploadedFile, UseInterceptors } from '@nestjs/common';
 import {IncomeService} from './income.service';
-import {incomeStore, INewCategory} from '../../store/income-store';
+import {incomeStore, INewCategory, INewExpense} from '../../store/income-store';
 
 @Controller('income')
 export class IncomeController {
@@ -19,8 +19,8 @@ export class IncomeController {
   }
 
   @Post('new-expense')
-  postNewExpense(@Body() body: INewCategory) {
-    incomeStore.setNewCategory(body);
+  postNewExpense(@Body() body: INewExpense) {
+    incomeStore.setNewExpense(body);
 
     return incomeStore.getAllCategories();
   }

@@ -1,6 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export interface ICategories {
     id: number;
     title: string;
+    amount: number;
 }
 
 export interface INewCategory {
@@ -8,27 +11,37 @@ export interface INewCategory {
 }
 
 export interface INewExpense {
-    value: number;
+    id: string;
+    amount: number;
 }
 
+type CategoriesStore = Record<string, ICategories>
 
 export class IncomeStore {
-    categories: ICategories[]
+    categories: CategoriesStore
 
     constructor() {
-        this.categories = [{id: 0, title: 'coffee shop'}];
+        this.categories = {};
+    }
+
+    defaultValues() {
+        for (let i = 0; i < 1; i++) {
+            const id = uuidv4();
+            this.categories[id] = {id, title: 'coffee-shops', amount: 0}
+        }
     }
 
     getAllCategories() {
         return this.categories;
     }
 
-    setNewCategory(body: INewCategory) {
-        this.categories.push({id: this.categories.length, title: body.title})
+    setNewCategory({title}: INewCategory) {
+        const id = uuidv4();
+        this.categories[id] = {id, title, amount: 0}
     }
 
-    addNewExpense() {
-        // this.categories.find()
+    setNewExpense({id, amount}: INewExpense) {
+        this.categories[id].amount = this.categories[id].amount + amount;
     }
 }
 

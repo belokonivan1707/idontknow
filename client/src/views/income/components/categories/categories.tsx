@@ -1,8 +1,9 @@
 import React from 'react';
-import { ICategories } from '../../../../common/services/income.services'
+import {ICategoriesData } from '../../../../common/services/income.services'
+import './categories.css';
 
 interface IProps {
-    categories: ICategories[] | null;
+    categories: ICategoriesData;
     onCategoryClick: (id: number) => void;
 }
 
@@ -12,14 +13,16 @@ export function Categories({ categories, onCategoryClick }: IProps) {
         <div className='wrapper-categories'>
             <h3>Your Categories</h3>
             <ul className='income-categories-list'>
-                {categories && categories.map(({ id, title }: ICategories) => {
+
+                {Object.keys(categories).map(key => {
                     return (
                         <li
-                            key={id}
-                            onClick={() => onCategoryClick(id)}
-                        >
-                            {title}
-                        </li>
+                        key={categories[key].id}
+                        onClick={() => onCategoryClick(categories[key].id)}
+                    >
+                        {categories[key].title}
+                        <span className='categories-amount'>{categories[key].amount}</span>
+                    </li>
                     )
                 })}
             </ul>

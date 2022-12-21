@@ -5,7 +5,7 @@ import Icon from '@mui/material/Icon';
 import { ENTER_EXPENSE_MESSAGE } from '../../../../common/constants/income.constants';
 import './keyboard.css'
 
-enum EKeyboard {
+export enum EKeyboard {
     Backspace = "backspase",
     Dot = ".",
 }
