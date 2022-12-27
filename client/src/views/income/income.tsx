@@ -1,4 +1,3 @@
-import { Preview } from '@mui/icons-material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { incomeService, ICategoriesData, INewCategory } from '../../common/services/income.services';
@@ -29,10 +28,8 @@ export function Income() {
         const sum = Math.round(Number(amount) * 100) / 100;
 
         if (!isNaN(sum)) {
-            console.log(sum)
             incomeService.submitExpense({ categoryID, sum }).then(result => {
                 setCategories(result);
-                console.log('result', result);
             })
         }
     }

@@ -1,0 +1,16 @@
+.homepage-wrapper {
+   padding: 0 10px;
+}
+
+.homepage-banner-container {
+   margin-bottom: 16px;
+}
+
+.homepage-hero-section-container {}
+
+@media (max-width: 768px) {
+   .homepage-banner-container {
+      display: flex;
+      justify-content: center;
+   }
+}

@@ -1,7 +1,18 @@
 :root {
-  --primary-font: #020202;
-  --secondary-font: #2F2F2F;
+  --primary-font-color: #4f5b62;
+  --secondary-font-color: #FF5722;
+
+  --success: #2e7d32;
+  --warning: #ed6c02;
+  --error: #d32f2f;
+
+  --yellow: #ffba3a;
 
   --green: #6FE0B0;
-  --border: #00000045;
+  --border: #0000004e;
+}
+
+:root {
+  --primary-title-size: 48px;
+  --primary-subtitle-size: 18px;
 }

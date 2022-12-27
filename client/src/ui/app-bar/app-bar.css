@@ -1,0 +1,16 @@
+.app-bar-empty {
+    height: 50px;
+    margin-bottom: 16px;
+}
+
+.app-bar-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    background-color: #c2e0ff14;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+}
