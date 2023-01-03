@@ -12,3 +12,7 @@
     max-width: 330px;
     margin-bottom: 8px;
 }
+
+.income-input-error {
+    color: var(--error);
+}

@@ -40,7 +40,7 @@ export const HeroSection: React.FC = () => {
             bottom: '20px',
             left: '15px',
             right: '15px',
-            background: '#534e4e36',
+            background: '#534e4eba',
             boxShadow: '0 0 3px 0 #5f5f5f',
             color: 'white'
           }}

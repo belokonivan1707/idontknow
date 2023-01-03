@@ -88,7 +88,6 @@ export function Keyboard({amount, setAmount}: IProps) {
         )
     }
 
-
     return (
         <div className='keyboard-wrapper'>
             <div className='keyboard-pannel-container'>
@@ -97,7 +96,6 @@ export function Keyboard({amount, setAmount}: IProps) {
                 )}
                 {!amount && (
                     <p className='keyboard-pannel-text'>{ENTER_EXPENSE_MESSAGE}</p>
-
                 )}
             </div>
             <div className='keyboard-list-container'>

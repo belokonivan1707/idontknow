@@ -6,8 +6,8 @@ import { Keyboard } from './components/keyboard/keyboard';
 import './income.css'
 
 export function Income() {
-    const { register, handleSubmit, reset } = useForm<INewCategory>();
-    const [amount, setAmount] = React.useState<string>('')
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<INewCategory>();
+    const [amount, setAmount] = React.useState('')
     const [categories, setCategories] = React.useState<ICategoriesData | null>(null)
 
     React.useEffect(() => {
@@ -36,7 +36,7 @@ export function Income() {
 
 
     return (
-        <div className='wrapper-income'>
+        <div className='income-wrapper'>
             <Keyboard amount={amount} setAmount={setAmount} />
 
             {categories && <Categories categories={categories} onCategoryClick={onCategoryClick} />}
@@ -44,7 +44,8 @@ export function Income() {
             <form onSubmit={handleSubmit(onSubmitNewCategory)} className="form-income">
                 <div className='income-input-box'>
                     <label>create new category</label>
-                    <input type="text" placeholder='new catogory' {...register("category")} />
+                    <input type="text" placeholder='new catogory' {...register("category", { required: true })} />
+                    {errors.category && <span className='income-input-error'>This field is required</span>}
                 </div>
                 <button type="submit">Add New Category</button>
             </form>

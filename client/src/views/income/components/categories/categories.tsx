@@ -8,7 +8,6 @@ interface IProps {
 }
 
 export function Categories({ categories, onCategoryClick }: IProps) {
-
     return (
         <div className='wrapper-categories'>
             <h3>Your Categories</h3>
