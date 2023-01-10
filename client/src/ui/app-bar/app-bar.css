@@ -15,4 +15,11 @@
     background-color: #c2e0ff14;
     border: 1px solid var(--border);
     backdrop-filter: blur(20px);
+    z-index: 10;
+}
+
+.app-bar-container {
+    max-width: calc(var(--max-wrapper-width) + 48px) ;
+    width: 100%;
+    margin: 0 auto;
 }

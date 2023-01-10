@@ -11,9 +11,11 @@ export const AppBar: React.FC<IProps> = ({ toggleDrawer }) => {
     return (
         <React.Fragment>
             <div className="app-bar-wrapper">
-                <IconButton sx={{ borderRadius: 0 }} onClick={toggleDrawer}>
-                    <MenuIcon />
-                </IconButton>
+                <div className="app-bar-container">
+                    <IconButton sx={{ borderRadius: 0 }} onClick={toggleDrawer}>
+                        <MenuIcon />
+                    </IconButton>
+                </div>
             </div>
             <div className="app-bar-empty" />
         </React.Fragment>

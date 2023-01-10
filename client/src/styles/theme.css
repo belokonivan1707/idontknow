@@ -15,4 +15,9 @@
 :root {
   --primary-title-size: 48px;
   --primary-subtitle-size: 18px;
+  --primary-text-size: 16px;
+}
+
+:root {
+  --max-wrapper-width: 1180px;
 }

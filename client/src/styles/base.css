@@ -15,9 +15,8 @@ button {
 	outline: inherit;
 }
 
-
 .wrapper {
-    max-width: 1180px;
+    max-width: var(--max-wrapper-width);
     width: 100%;
     margin: 0 auto;
 }

@@ -4,35 +4,34 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { AppBar } from "../ui/app-bar/app-bar";
 import { Drawer } from "../ui/drawer/drawer";
-import { APP_ROUTES, IAppRoutes } from "../common/routes/app-routes";
+import { ROUTES } from "../routes/app-routes";
+import { Home } from "./home/home";
+import { Income } from "./income/income";
+import { English } from "./english/english";
+import { MuiTheme } from "../styles/mui-theme";
+import { MainLayout } from "../ui/main-layout/main-layout";
 
 const App = () => {
-  const [anchor, setAnchor] = React.useState(false);
-
-  function toggleDrawer() {
-    setAnchor((prev) => !prev);
-  };
 
   return (
-    <BrowserRouter>
-      <div className="wrapper">
-        <AppBar toggleDrawer={toggleDrawer}/>
-        <Drawer anchor={anchor} toggleDrawer={toggleDrawer}/>
-        
-        <Routes>
-          {APP_ROUTES.map((route: IAppRoutes, index: number) => (
-            <Route
-              key={index}
-              path={route.path}
-              element={route.element}
-            />
-          ))}
-        </Routes>
-      </div>
+    <ThemeProvider theme={MuiTheme}>
+      <BrowserRouter>
+        <div className="wrapper">
+          <MainLayout>
+            <Routes>
+              <Route path={ROUTES.HOME} element={<Home />} />
+              <Route path={ROUTES.INCOME} element={<Income />} />
+              <Route path={ROUTES.ENGLISH.HOME} element={<English />} />
+              <Route path={ROUTES.HOME} element={<Home />} />
+            </Routes>
+          </MainLayout>
+        </div>
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

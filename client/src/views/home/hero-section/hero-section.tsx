@@ -2,12 +2,14 @@ import React from 'react';
 import Card from '@mui/material/Card/Card';
 import Typography from '@mui/material/Typography/Typography';
 import { SimpleCollapse } from '../../../ui/simple-collaapse/simple-collapse';
-import { HOMEPAGE_HERO_SECTION_DESCRIPTION } from '../../../common/constants/income.constants';
-import MarilynMonroe from '../../../assets/img/marilyn-monroe.webp';
 
+interface IProps {
+  image: string,
+  description: string;
 
+}
 
-export const HeroSection: React.FC = () => {
+export const HeroSection: React.FC<IProps> = ({ image, description }) => {
   const [openHeroSection, setOpenHeroSection] = React.useState(false);
 
   const handleOpenHeroSection = () => {
@@ -25,14 +27,14 @@ export const HeroSection: React.FC = () => {
           height: '500px',
           position: 'relative',
           padding: '10px 15px',
-          backgroundImage: `url(${MarilynMonroe})`,
+          backgroundImage: `url(${image})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: '4px',
           boxShadow: '0 0 3px 0 black'
         }}
-      > 
+      >
         <Card
           sx={{
             p: 1,
@@ -45,7 +47,7 @@ export const HeroSection: React.FC = () => {
             color: 'white'
           }}
         >
-          <Typography>{HOMEPAGE_HERO_SECTION_DESCRIPTION}</Typography>
+          <Typography>{description}</Typography>
         </Card>
       </div>
     </SimpleCollapse>

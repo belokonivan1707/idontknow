@@ -2,13 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { APP_ROUTES } from '../../common/routes/app-routes';
+import { DROWER_ROUTES } from '../../routes/app-routes';
 
 interface IProps {
   anchor: boolean;
@@ -24,7 +23,7 @@ export const Drawer = ({anchor, toggleDrawer}: IProps) => {
       onKeyDown={toggleDrawer}
     >
       <List>
-        {APP_ROUTES.map(({ path, title, icon }, index) => (
+        {DROWER_ROUTES.map(({ path, title, icon }, index) => (
           <Link key={index} to={path}>
             <ListItem key={index} disablePadding>
               <ListItemButton>
